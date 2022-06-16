@@ -3,7 +3,7 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
-const Article = require('./models/article.model');
+//const Article = require('./models/article.model');
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
@@ -15,7 +15,7 @@ const {log} = require("debug");
 mongoose.connect('mongodb://localhost:27017/site_blog')
     .then(()=>console.log("Connexion à MongoDB réussie"))
     .catch(()=>console.log("Connexion à MongoDB échouée"));
-
+/*
 for (let index = 0; index < 8; index++){
   let article = new Article({
     name: "Article "+index,
@@ -27,6 +27,7 @@ for (let index = 0; index < 8; index++){
       .then(()=>console.log("Sauvegarde réussie"))
       .catch(()=>console.log("Sauvegarde échouée"));
 }
+*/
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
