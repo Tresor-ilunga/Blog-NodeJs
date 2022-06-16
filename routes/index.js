@@ -15,4 +15,17 @@ router.get('/', function(req, res, next) {
       });
 });
 
+router.get('/article/:id', (req, res)=>{
+    //console.log(req.params.id);
+    Article.findOne({_id: req.params.id})
+        .then((article)=>{
+            res.render('single-article',{article: article})
+            //console.log(article);
+        })
+        .catch((err)=>{
+            res.redirect('/');
+            //console.log(err);
+        });
+})
+
 module.exports = router;
