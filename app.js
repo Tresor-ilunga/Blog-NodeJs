@@ -4,6 +4,7 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 const Article = require('./models/article.model');
+const Category = require('./models/category.model');
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
@@ -16,6 +17,9 @@ mongoose.connect('mongodb://localhost:27017/site_blog')
     .then(()=>console.log("Connexion à MongoDB réussie"))
     .catch(()=>console.log("Connexion à MongoDB échouée"));
 
+
+
+
 for (let index = 0; index < 8; index++){
   article = new Article({
     name: 'Qu\'est-ce que le Lorem Ipsum?',
@@ -23,6 +27,14 @@ for (let index = 0; index < 8; index++){
     publishedAt: Date.now()
   })
   //article.save();
+}
+
+for (let index = 0; index < 8; index++){
+  category = new Category({
+    title: 'Qu\'est-ce que le Lorem Ipsum?',
+    description: 'Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression'
+  })
+  category.save();
 }
 
 /*

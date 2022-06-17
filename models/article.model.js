@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const articleSchema = mongoose.Schema({
-    name: String,
+    title: String,
     content: String,
+    image: String,
+    category: String,
     publishedAt: Date
 });
 
