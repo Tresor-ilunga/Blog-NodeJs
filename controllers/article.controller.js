@@ -31,3 +31,11 @@ exports.add = (req, res)=>{
             res.redirect('/');
         });
 }
+
+exports.addOne = (req, res)=>{
+    let article = new Article({
+        ...req.body,
+        publishedAt: Date.now()
+    });
+    console.log(article);
+}
