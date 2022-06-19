@@ -37,5 +37,31 @@ exports.addOne = (req, res)=>{
         ...req.body,
         publishedAt: Date.now()
     });
-    console.log(article);
+    article.save((err, article)=>{
+        if (err)
+        {
+            Category.find()
+                .then((categories)=>{
+                    res.render('add-article', {categories: categories,error: "Désolé, une erreur s'est produite. Merci de réessayer plus tard"});
+                })
+                .catch(()=>{
+                    res.redirect('/');
+                });
+        }
+        else {
+            Category.find()
+                .then((categories)=>{
+                    res.render('add-article', {categories: categories,success: "Merci, votre article a été ajouté"});
+                })
+                .catch(()=>{
+                    res.redirect('/');
+                });
+        }
+    })
+        /*.then(()=>{
+            res.render('add-article', {success: "Merci, votre article a été ajouté"})
+        })
+        .catch(()=>{
+            res.render('add-article', {error: "Désolé, une erreur s'est produite. Merci de réessayer plus tard"})
+        });*/
 }

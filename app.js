@@ -26,7 +26,7 @@ mongoose.connect('mongodb://localhost:27017/site_blog')
 
 
 
-
+/*
 for (let index = 0; index < 8; index++){
   article = new Article({
     name: 'Qu\'est-ce que le Lorem Ipsum?',
@@ -35,7 +35,7 @@ for (let index = 0; index < 8; index++){
   })
   //article.save();
 }
-
+*/
 for (let index = 0; index < 8; index++){
   category = new Category({
     title: 'Qu\'est-ce que le Lorem Ipsum?',

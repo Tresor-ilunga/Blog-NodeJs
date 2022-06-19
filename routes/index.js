@@ -10,6 +10,6 @@ router.get('/article/:id', articleController.show);
 
 router.get('/add-article', articleController.add);
 
-router.get('/add-article', articleController.addOne);
+router.post('/add-article', articleController.addOne);
 
 module.exports = router;
