@@ -35,6 +35,7 @@ exports.add = (req, res)=>{
 exports.addOne = (req, res)=>{
     let article = new Article({
         ...req.body,
+        image: req.file.filename,
         publishedAt: Date.now()
     });
     article.save((err, article)=>{
@@ -58,10 +59,4 @@ exports.addOne = (req, res)=>{
                 });
         }
     })
-        /*.then(()=>{
-            res.render('add-article', {success: "Merci, votre article a été ajouté"})
-        })
-        .catch(()=>{
-            res.render('add-article', {error: "Désolé, une erreur s'est produite. Merci de réessayer plus tard"})
-        });*/
 }
